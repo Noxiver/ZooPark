@@ -113,6 +113,7 @@ public class Main {
                 Monkey[] monkey = new Monkey[li];
                 for (int i = 0; i < li; i++) {
                     o++;
+                    
                     System.out.println("Отлично, вы выбрали обезьяну, задайте ему имя и вес");
                     System.out.println("Имя:");
                     name = scanner.nextLine();
