@@ -12,6 +12,10 @@ import zoo.aviary.aviaryOmni;
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import zoo.food.Meat;
+import zoo.food.Vegetables;
+import zoo.Food;
+
 
 public class Main {
 
@@ -34,6 +38,9 @@ public class Main {
         aviaryHerb aviaryHerb = new aviaryHerb(30);
         aviaryOmni aviaryOmni = new aviaryOmni(10);
         aviaryCarn aviaryCarn = new aviaryCarn(20);
+
+        Meat meat = new Meat("meat");
+        Vegetables vegetables = new Vegetables("vegetables");
 
 
         System.out.print("Строим зоопарк");
@@ -113,7 +120,7 @@ public class Main {
                 Monkey[] monkey = new Monkey[li];
                 for (int i = 0; i < li; i++) {
                     o++;
-                    
+
                     System.out.println("Отлично, вы выбрали обезьяну, задайте ему имя и вес");
                     System.out.println("Имя:");
                     name = scanner.nextLine();
@@ -233,7 +240,7 @@ public class Main {
                     if (countOfMeat > 0) {
                         for (int i = 0; i < l; i++) {
                             System.out.print(aviaryCarn.getAnimal(i));
-                            aviaryCarn.animalsCarn.get(i).feed("meat");
+                            aviaryCarn.animalsCarn.get(i).feed(meat.getNameFood());
                             countOfMeat = countOfMeat - aviaryCarn.animalsCarn.get(i).needMeat();
                         }
                     } else {
@@ -242,7 +249,7 @@ public class Main {
                 } else if (food.matches("2")) {
                     for (int i = 0; i < l; i++) {
                         System.out.print(aviaryCarn.getAnimal(i));
-                        aviaryCarn.animalsCarn.get(i).feed("vegetables");
+                        aviaryCarn.animalsCarn.get(i).feed(vegetables.getNameFood());
                     }
                 } else {
                     System.out.println("вы ввели некоректную команду");
@@ -257,7 +264,7 @@ public class Main {
                     if (countOfVegetables > 0) {
                         for (int i = 0; i < s; i++) {
                             System.out.print(aviaryHerb.getAnimal(i));
-                            aviaryHerb.animalsHerb.get(i).feed("vegetables");
+                            aviaryHerb.animalsHerb.get(i).feed(vegetables.getNameFood());
                             countOfVegetables = countOfVegetables - aviaryHerb.animalsHerb.get(i).needVegetable();
                         }
                     } else {
@@ -267,7 +274,7 @@ public class Main {
                     if (countOfMeat > 0) {
                         for (int i = 0; i < s; i++) {
                             System.out.print(aviaryHerb.getAnimal(i));
-                            aviaryHerb.animalsHerb.get(i).feed("meat");
+                            aviaryHerb.animalsHerb.get(i).feed(meat.getNameFood());
                         }
                     } else {
                         System.out.println("Еда закончилась");
@@ -285,7 +292,7 @@ public class Main {
                     if (countOfVegetables > 0) {
                         for (int i = 0; i < o; i++) {
                             System.out.print(aviaryOmni.getAnimal(i));
-                            aviaryOmni.animalsOmni.get(i).feed("vegetables");
+                            aviaryOmni.animalsOmni.get(i).feed(vegetables.getNameFood());
                             countOfVegetables = countOfVegetables - aviaryOmni.animalsOmni.get(i).needMeat();
                         }
                     } else {
@@ -295,7 +302,7 @@ public class Main {
                     if (countOfMeat > 0) {
                         for (int i = 0; i < o; i++) {
                             System.out.print(aviaryOmni.getAnimal(i));
-                            aviaryOmni.animalsOmni.get(i).feed("meat");
+                            aviaryOmni.animalsOmni.get(i).feed(meat.getNameFood());
                             countOfMeat = countOfMeat - aviaryOmni.animalsOmni.get(i).needVegetable();
                         }
                     } else {
